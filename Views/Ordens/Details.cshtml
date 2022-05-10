@@ -1,0 +1,57 @@
+﻿@model Ordenes.ViewModels.OrdenesViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Detalles de la orden</h1>
+
+<div>
+    <h4>Orden</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Categoria
+                </th>
+                <th>
+                    Stock
+                </th>
+                <th>
+                    Fecha
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+
+
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Categoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Stock)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Fecha)
+                </td>
+             
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

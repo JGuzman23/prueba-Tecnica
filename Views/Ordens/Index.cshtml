@@ -1,0 +1,59 @@
+﻿@model List<Ordenes.ViewModels.OrdenesViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div id="PlaceHolderHere"></div>
+<h1>Mis Ordenes</h1>
+
+
+
+<button type="button" class="btn btn-success" data-toggle="ajax-modal" data-target="#createOrden" data-url="@Url.Action("Create")"> Crear una Orden </button>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nombres
+            </th>
+            <th>
+                Categoria
+            </th>
+            <th>
+                Stock
+            </th>
+            <th>
+                Fecha
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stock)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fecha)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
